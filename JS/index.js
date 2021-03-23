@@ -1,6 +1,6 @@
-// Récupération des données de l'API 
+
 function getItems () { 
-    fetch("http://localhost:3000/api/teddies")
+    fetch("http://localhost:3000/api/teddies") // Récupération des données de l'API 
     .then(function(response){
         return response.json();
     })
@@ -9,18 +9,20 @@ function getItems () {
       (data => {
          console.log(data) // Verification du bon fonctionnement de "fetch"
          const products = document.getElementById('products') // Div de référence dans le HTML
-         for (let index = 0; index < data.length; index++) {
+         for (let index = 0; index < data.length; index++) { // Index des données du array
 
          // Constantes pour les informations des produits et leurs conteneurs HTML 
-         const article = document.createElement('article')
+         const container = document.createElement('article')
          const img = document.createElement('img')
          const name = document.createElement('h3')
          const desc = document.createElement('p')
          const price = document.createElement('h4')
-         
-         // Contenu des articles
-         article.id = "teddies__cards";
-         article.className= "teddies";
+         const link = document.createElement ('a')
+         const more = document.createElement('button')
+
+         // Paramétrage des données à inclure dans le HTML 
+         container.id = "teddies__cards";
+         container.className= "teddies";
 
          img.innerHTML = data[index].imageUrl
          img.src = data[index].imageUrl
@@ -38,13 +40,20 @@ function getItems () {
 
          price.textContent = data[index].price /100 +'€'
          price.className = "teddies__price"
+         // Lien vers la page products à partir de l'ID dans l'index
+         link.href = "products.html?id=" + data[index]._id
+
+         more.textContent = "En savoir plus"
+         more.className = "more__button seemore"
       
          // Intégration au HTML
-         products.append(article)
-         article.appendChild(img)
-         article.append(name)
-         article.append(desc)
-         article.append(price)
+         products.append(container)
+         container.appendChild(img)
+         container.append(name)
+         container.append(desc)
+         container.append(price)
+         container.append(link)
+         link.append(more)
          }
   })
 

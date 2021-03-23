@@ -18,6 +18,13 @@ header {
    width: auto;
    max-width: 300px;
 }
+.basket__icon {
+    color: purple;
+    font-size: 30px;
+}
+li {
+    list-style : none;
+}
 
 main {
     width: 95%;
