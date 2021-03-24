@@ -21,6 +21,8 @@ function displayItem () {
         const name = document.createElement('h1')
         const desc = document.createElement('p')
         const price = document.createElement('h2')
+        const color = document.createElement ('select')
+        const options = document.createElement ('value')
         
         container.id = "teddies__cards";
         container.className= "teddies";
@@ -42,6 +44,9 @@ function displayItem () {
         price.textContent = data.price /100 +'€'
         price.className = "teddies__price"
 
+        color.values = data.colors
+        color.options = data.colors
+
         
         // Intégration au HTML
         singleItem.append(container)
@@ -49,6 +54,8 @@ function displayItem () {
         container.appendChild(img)
         container.append(desc)
         container.append(price)
+        container.append(color)
+        color.append(options)
     
     })
 

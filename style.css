@@ -9,14 +9,17 @@ body {
 header {
     background-color: #f3e9f1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
 }
 
 .logo {
    height: auto;
    width: auto;
-   max-width: 300px;
+   max-width: 200px;
 }
 .basket__icon {
     color: purple;
@@ -27,7 +30,7 @@ li {
 }
 
 main {
-    width: 95%;
+    width: auto;
     margin: auto;
 }
 

@@ -43,7 +43,7 @@ function getItems () {
          // Lien vers la page products à partir de l'ID dans l'index
          link.href = "products.html?id=" + data[index]._id
 
-         more.textContent = "En savoir plus"
+         more.textContent = "Adoptez le"
          more.className = "more__button seemore"
       
          // Intégration au HTML
