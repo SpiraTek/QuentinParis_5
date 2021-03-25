@@ -1,8 +1,8 @@
 
-let productLocation = new URLSearchParams(window.location.search);
-let id = productLocation.get('id')
 // Appel API des produits 
 function displayItem () {
+    let productLocation = new URLSearchParams(window.location.search);
+    let id = productLocation.get('id')
     fetch("http://localhost:3000/api/teddies/" + id) // Récupération des données de l'API 
     .then(function(response){
         return response.json();
@@ -20,10 +20,16 @@ function displayItem () {
         const img = document.createElement('img')
         const name = document.createElement('h1')
         const desc = document.createElement('p')
-        const price = document.createElement('h2')
+        const price = document.createElement('h2')  
+        // Gestion du choix des couleurs
         const color = document.createElement ('select')
-        const options = document.createElement ('value')
-        
+        let options = data.colors;
+
+        options.forEach(function(colors,key) {
+        color[key] = new Option(colors,key); //Boucle permettant de créer une option pour chaque itération de "data.colors"
+        });
+         
+        // Contenu du HTML
         container.id = "teddies__cards";
         container.className= "teddies";
 
@@ -44,8 +50,7 @@ function displayItem () {
         price.textContent = data.price /100 +'€'
         price.className = "teddies__price"
 
-        color.values = data.colors
-        color.options = data.colors
+        color.className = "color__choice"
 
         
         // Intégration au HTML
