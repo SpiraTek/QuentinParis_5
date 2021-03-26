@@ -29,18 +29,23 @@
         </div>
     </header>
 
-    <main class="main" id="main">
-        <section class="products__section" id="products__section">
-            <div class="section__title">
-                <h1>Découvrez nos oursons en peluche</h1>
-                <p class="subtitle">Fabriqués artisalement</p>
-            </div>  
-            <div id="products" class="products">
-            <!-- LE CONTENU EN JS EST INSERE ICI-->
-            </div>
-        </section>
-        
-
+    <main class="cart--main" id="cart--main">
+        <div class="cart__table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Article</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>    
+                    </tr>
+                </thead>
+                <tbody id="cart__tablebody"></tbody>
+            </table>
+            
+            <p>Sous total : <span class="subtotal"></span>€</p>
+            
+            <button id="confirm-command"><a href="checkout.html">Passer la commande</a> </button>
+        </div>
 
     </main>
 

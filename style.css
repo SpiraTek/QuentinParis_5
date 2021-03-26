@@ -5,8 +5,11 @@ body {
     margin: auto;
     width: auto;
 }
+a {
+    text-decoration: none;
+}
 
-header {
+.header {
     background-color: #f3e9f1;
     display: flex;
     justify-content: space-between;
@@ -21,6 +24,7 @@ header {
    width: auto;
    max-width: 200px;
 }
+
 .basket__icon {
     color: purple;
     font-size: 30px;
@@ -28,6 +32,11 @@ header {
 li {
     list-style : none;
 }
+
+.cart:hover {
+    display: contents;
+}
+
 
 main {
     width: auto;
