@@ -38,13 +38,20 @@ for (let i = 0; i < cartStorage.length; i++) {
 
 // Calcul du prix total
 
+  // fonction permettant de récupérer le prix total
+function getTotalPrice () {
+  
+  let totalCart = 0;
+  cartStorage.forEach((cart) => {
+    totalCart = totalCart + cart.price*cart.quantity;
+  console.log(cartStorage.price, cartStorage.quantity);
+  });
+  return totalCart;
+  
+}
+// Injection du resultat dans le HTML
 let priceContainer = document.getElementById("subTotal");
-cartStorage.forEach((cart) => {
-  console.log(cart.price, cart.quantity);
-  priceContainer.innerHTML = cart.price * cart.quantity;
-});
-
-// CALCUL DU PRIX TOTAL DU PANIER
+priceContainer.innerHTML = getTotalPrice();
 
 /*let getTable = document.getElementById("cart__tablebody")
 
