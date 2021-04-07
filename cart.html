@@ -32,23 +32,34 @@
     </header>
 
     <main class="cart--main" id="cart--main">
-        <div class="cart__table" id="table">
+        <!-- <div class="cart__table" id="table">
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr> 
                         <th>Article</th>
+                        <th class="thimg">Image</th>
                         <th>Quantité</th>
                         <th>Prix</th>    
                     </tr>
                 </thead>
                 <tbody id="cart__tablebody"></tbody>
-            </table>
+            </table> 
             
-            <p>Sous total : <span class="subtotal"></span>€</p>
+             !-->
+        </div>
+        <div id= "cart__container" class="cart__container">
+                <h2>Image</h2>
+                <h2>Nom</h2>
+                <h2>Quantité</h2>
+                <h2>Prix</h2>      
+                <h2>Total</h2>
+                <h2>Supprimer</h2>      
+        </div>
+        <div id="cartCheckout" class="cartCheckout">
+            <p>Sous total : <span id="subTotal" class="subtotal"></span>€</p>
             
             <button id="confirm-order"><a href="checkout.html">Passer la commande</a> </button>
         </div>
-
     </main>
 
 </body>
