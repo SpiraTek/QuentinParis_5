@@ -44,14 +44,35 @@ function getTotalPrice () {
   let totalCart = 0;
   cartStorage.forEach((cart) => {
     totalCart = totalCart + cart.price*cart.quantity;
-  console.log(cartStorage.price, cartStorage.quantity);
   });
   return totalCart;
   
 }
-// Injection du resultat dans le HTML
+// Injection du prix total dans le HTML
 let priceContainer = document.getElementById("subTotal");
 priceContainer.innerHTML = getTotalPrice();
+
+// Gestion du compte du nombre de produits dans le panier.
+function getTotalItem () {
+    
+  let totalItem = 0;
+  cartStorage.forEach((cart) => {
+    totalItem = totalItem + cart.quantity;
+  });
+  return totalItem;
+}
+// Injection du nombre d'articles dans le HTML 
+let totalItemContainer = document.getElementById("total__item")
+totalItemContainer.innerHTML = getTotalItem();
+
+//widget Panier
+function cartWidget () {
+  let totalItemWidget = document.getElementById("incart")
+  totalItemWidget.innerHTML = getTotalItem();
+  }
+  
+  cartWidget();
+
 
 /*let getTable = document.getElementById("cart__tablebody")
 

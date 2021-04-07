@@ -56,10 +56,40 @@
                 <h2>Supprimer</h2>      
         </div>
         <div id="cartCheckout" class="cartCheckout">
+            <p>Nombre d'articles dans le panier: <span id="total__item"></span></p>
             <p>Sous total : <span id="subTotal" class="subtotal"></span>€</p>
-            
-            <button id="confirm-order"><a href="checkout.html">Passer la commande</a> </button>
         </div>
+        <div class="form__container">
+
+            <form action="" method="post">
+                <div class="lastname">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="lastname" name="user_name">
+                </div>
+                <div class="firstname">
+                    <label for="firstname">Prénom :</label>
+                    <input type="text" id="firstname" name="user_firstname">
+                </div>
+                <div class="address">
+                    <label for="address">Adresse :</label>
+                    <input type="text" id="address" name="user_address">
+                </div>
+                <div class="zip">
+                    <label for="zipcode">Code Postal :</label>
+                    <input type="text" id="zipcode" name="user_zipcode">
+                </div>
+                <div class="city">
+                    <label for="city">Ville :</label>
+                    <input type="text" id="city" name="user_city">
+                </div>
+                <div class="mail">
+                    <label for="mail">Adresse Electronique :</label>
+                    <input type="email" id="mail" name="user_email">
+                </div>
+            </form>
+
+        </div>
+        <button id="confirm-order" class="confirm-order"><a href="checkout.html">Passer la commande</a> </button>
     </main>
 
 </body>

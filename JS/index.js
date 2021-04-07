@@ -1,4 +1,3 @@
-
 function getItems () { 
     fetch("http://localhost:3000/api/teddies") // Récupération des données de l'API 
     .then(function(response){
@@ -63,4 +62,5 @@ function getItems () {
 )}
 
 getItems()
+
       

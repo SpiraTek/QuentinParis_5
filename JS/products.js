@@ -198,3 +198,5 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
       }
     });
   });
+  // Gestion Panier
+

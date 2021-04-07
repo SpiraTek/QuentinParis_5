@@ -112,20 +112,60 @@ main {
   max-height: 100px;
   max-width: 100px;
 }
-.rmvbtn {
+
+button {
   width: 120px;
   border-radius: 20px;
   background-color: #f3e9f1;
   border-color: purple;
 }
+button:hover {
+  cursor: pointer;
+}
+button:active {
+  zoom: 1.02;
+  box-shadow: 1.25px;
+
+}
 .cartCheckout {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   margin: auto;
   background-color: pink;
-  border: solid purple;
-  margin-top: 20px;
   width: 50%;
+  margin: auto;
+}
+
+.incart {
+  color: purple;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 50px;
+  border: solid purple;
+  padding: 3px;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: space-around;
+  align-items: center;
+  border: solid black;
+  width: 50%;
+  margin: auto;
+  
+}
+.confirm-order {
+  display: flex;
+  font-size: 20px;;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 50px;
+  width: 300px;
+  margin-top: 20px;
 }
