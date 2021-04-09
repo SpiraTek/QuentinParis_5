@@ -88,7 +88,7 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
       price: data.price / 100,
       quantity: 1,
     };
-   
+
     // --------------  Ajout au panier au click sur le bouton --------------
 
     // Selection du bouton dans le DOM
@@ -121,44 +121,84 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
         localStorage.setItem("cart", JSON.stringify(cartStorage));
         
       };
-    
 
-      // Si le local storage est vide création de celui ci avec les données produit
-      if (cartStorage === null) {
+      // Si produit déja présent incrémenter la quantité
+      // Recherche de la présence du produit dans le local storage. Trouver si dans le local storage un produit possède déjà l'id du produit qu'on ajoute.
+
+      // Trouver l'index du produit contenant l'id
+      //avec l'index je récupère le produit dans le tableau cartStorage    (1 index = 1 id et 1 COULEUR)
+      //j'ajoute 1 à la quantité
+      // je renvoie dans le local storage
+
+      // Si il y'a déjà des produits dans le local storage
+      /* Fonction pour l'ajout d'une quantité au niveau d'un objet déjà existant
+      Celle-ci prend en paramètre un objet (ici l'objet déjà existant representé par une ligne de notre talbeau)
+      La quantite etant toujours incrementée de 1 pas besoin d'autre paramètre
+          il faudrait modifier la fonction afin qu'elle prenne encompte d'autres parametres afin de les utiliser ou non,
+          par ex. => function addXXXXXXToObject(formerObject, autreParamettre) {...}
+      */
+
+      function incrementQuantity(formerObject) {
+        let modifiedObject = {
+          id: formerObject.id,
+          name: formerObject.name,
+          //Couleur: color.selectedIndex A CONFIGURER
+          image: formerObject.image,
+          price: formerObject.price,
+          //petit soucis avec le ++ a toi de regarder plus emplement
+          quantity: ++formerObject.quantity, //Ou +1
+        };
+        return modifiedObject;
+      }
+
+      //Booléen permettant de determiner si l'objet qui est testé a été trouvé ou non dans le local storage
+      // De base = true et passe a false dans le cas où un objet se trouve déjà dans le panier
+      let notInCart = true;
+
+      //Test pour savoir si le cartstorage existe déjà
+      if (cartStorage) {
+        //pour chaque ligne de notre "tableau" si l'id de l'objet que l'on désire ajouter au panier existe déjà
+        for (let i = 0; i < cartStorage.length; i++) {
+          if (cartStorage[i].id === productId) {
+            //si l'on determine que l'objet existait déjà on fait passer le booléen notInCart a false (utilisé dans le switch plus bas)
+            notInCart = false;
+            /*à l'emplacement de l'objet dans le tableau on remplace les données présentes par les nouvelles données 
+                (ici en appelant une fonction qui prend en paramètre l'objet initial cartStorage)
+                  et retourne un autre objet modifié.
+                */
+            cartStorage[i].quantity+=1 //= incrementQuantity(cartStorage[i]);
+          }
+        }
+        //Switch permettant la gestion des différents cas rencontrables, facilite l'ajout d'éventuels nouveaux cas.
+        //PAS DE SWITCH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // l'article n'est pas dans le panier, ajout de l'article (création d'un nouvel index)
+        switch (notInCart) {
+          case true:
+            addToLocalStorage();
+            console.log("Un nouveau produit a bien été ajouté au panier.");
+            //confirmation();
+            break;
+          // l'article est déja dans le panier, incrémentation de la quantité
+          case false:
+            localStorage.setItem("cart", JSON.stringify(cartStorage));
+            console.log("Le produit a bien été modifié.");
+            break;
+          default:
+            alert(
+              "une erreur a été rencontrée lors de l'ajout du produit au panier"
+            );
+            console.log("Cas par défaut.");
+        }
+      }
+      // Si le local storage est vide création d'un tableau dans celui-ci
+      else {
         cartStorage = [];
         addToLocalStorage();
         console.log("Le panier a été initialisé.");
         //confirmation();
       }
       
-      // Dans le cas ou le local storage n'est pas vide : 
-      // Boucle permettant de récupérer l'index d'un produit déjà présent dans le local storage (allReadyInCart)
-      else {
-        let allreadyInCart = false; //initialisation du booléen à faux
-        for (let i = 0; i < cartStorage.length; i++) {
-          if (cartStorage[i].id === productId) {
-            // si l'ID du produit qu'on ajoute au panier est déjà présent dans le local storage on récupère son index dans ce dernier.
-            allreadyInCart = i
-          }
-        };
-
-        // Cas ou le produit est déjà présent dans le panier : incrémentation de la quantité. 
-          if (allreadyInCart !== false){
-            cartStorage[allreadyInCart].quantity++
-            localStorage.setItem("cart", JSON.stringify(cartStorage));
-            console.log("Le produit a bien été modifié.")
-          }
-          // Sinon le produit n'est pas déjà présent intégration dans le localStorage
-          else {
-            addToLocalStorage()
-            console.log("un nouveau produit a été ajouté au panier")
-          }
-
-        }
-      
-
     });
-    
   });
   // Gestion Panier
 

@@ -31,8 +31,8 @@ for (let i = 0; i < cartStorage.length; i++) {
 
   let removeBtn = document.createElement("button");
   removeBtn.innerHTML = "Supprimer du panier";
-  removeBtn.className = "rmvbtn";
-  removeBtn.id = "removeButton" + [i];
+  removeBtn.className = "removeItemButton";
+  removeBtn.id = "remove_Item_Button" + [i];
   getTable.append(removeBtn);
 }
 
@@ -72,6 +72,33 @@ function cartWidget () {
   }
   
   cartWidget();
+
+
+// BOUTON POUR SUPPRIMER UN ELEMENT DU PANIER 
+
+// Selection de tous les bouttons removeItemButton
+
+
+for(let i = 0 ; 1 < removeItemBtn.length; i++){
+  removeItemBtn[i].addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("click")
+    // Selection du produit à supprimer 
+    let productToRemove = cartStorage[i].id
+   
+  })
+};
+// BOUTON POUR VIDER ENTIEREMENT LE PANIER -----------------------------------------------------------------------------
+const removeAllBtn = document.getElementById("clearCart")
+removeAllBtn.addEventListener('click', (e) => {
+  e.preventDefault(); 
+  // suppression de cart dans le local storage
+  localStorage.removeItem("cart")
+  alert("Le panier a été vidé")
+  // rechargement de la page 
+  window.location.href = "cart.html";
+});
+// RECUPERER LE NUMERO DE COMMANDE VIA L'API 
 
 
 /*let getTable = document.getElementById("cart__tablebody")
