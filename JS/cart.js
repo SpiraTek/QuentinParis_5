@@ -78,16 +78,6 @@ function cartWidget () {
 
 // Selection de tous les bouttons removeItemButton
 
-
-for(let i = 0 ; 1 < removeItemBtn.length; i++){
-  removeItemBtn[i].addEventListener('click', (e) => {
-    e.preventDefault();
-    alert("click")
-    // Selection du produit à supprimer 
-    let productToRemove = cartStorage[i].id
-   
-  })
-};
 // BOUTON POUR VIDER ENTIEREMENT LE PANIER -----------------------------------------------------------------------------
 const removeAllBtn = document.getElementById("clearCart")
 removeAllBtn.addEventListener('click', (e) => {
@@ -97,6 +87,80 @@ removeAllBtn.addEventListener('click', (e) => {
   alert("Le panier a été vidé")
   // rechargement de la page 
   window.location.href = "cart.html";
+});
+
+// GESTION VERIFICATION DU FORMULAIRE --------------------------------------------------
+
+
+function formValidation () {
+
+  // Initialisation des entrées du formulaire
+  let formLastname = document.getElementById("lastname").value;
+  let formFirstname = document.getElementById("firstname").value;
+  let formAddress = document.getElementById("address").value;
+  let formZip = document.getElementById("zipcode").value;
+  let formCity = document.getElementById("city").value;  
+  let formMail = document.getElementById("mail").value;
+
+  // Controles des expressions courantes
+  let formError = "";
+  const regNumber = /[0-9]/;
+  const regMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regText = /[a-zA-Z]/;
+
+  // Test des entrées du formulaire qui renvoi un message d'erreur en cas de saisie incorrecte
+if (regText.test(formLastname) !== true || formLastname === "") {
+  formError = "Veuillez vérifier votre saisie dans le champs 'nom' les chiffres et les caractères spéciaux sont interdits."
+}
+else {}
+// Prénom
+if (regText.test(formFirstname) !== true || formFirstname === "") {
+  formError = "Veuillez vérifier votre saisie dans le champ 'prénom' les chiffres et les caractères spéciaux sont interdits."
+}
+else {}
+// Adresse
+if (regText.test(formAddress) !== true || regNumber.test(formAddress) !== true || formAddress === "") {
+  formError = "Veuillez vérifier votre saisie dans le champ 'adresse', il doit contenir un numéro et des lettres les caractères spéciaux sont interdits.";
+}
+else {}
+// Code Postal
+if (regNumber.test(formZip) !== true || formZip === "") {
+  formError = "Veuillez vérifier votre saisie dans le champ 'code postal', seuls les chiffres sont autorisés.";
+}
+else{}
+if (regText.test(formCity) !== true || formCity === "") {
+  formError = "Veuillez vérifier votre saisie dans le champ 'ville' les chiffres et les caractères spéciaux sont interdits.";
+}
+// Adresse Mail
+if (regMail.test(formMail) !== true || formMail === "") {
+  formError = "Veuillez vérifier votre saisie dans le champ Mail, seules les adresses mails au format 'monmail@monfournisseur.XXX' sont autorisées.";
+}
+// GESTION DU MESSAGE D'ALERTE EN CAS DE SAISIE INCORRECTE (form error est différent de "")
+if (formError !== "") {
+  alert("Veuillez vérifier les données saisies:" + "\n" + formError);
+}
+
+// SI LE FORMULAIRE EST CORRECTEMENT RENSEIGNE
+// Renvoi des données saisies dans l'objet formData 
+else {
+  formData = {
+    lastName: formLastname,
+    firstName: formFirstname,
+    address: formAddress,
+    zipCode: formZip,
+    city: formCity,
+    email: formMail,
+  };
+  return formData;
+  }
+}
+let formData;
+// test 
+const formCheckBtn = document.getElementById("confirm-order")
+formCheckBtn.addEventListener('click', (e) => {
+  e.preventDefault(); 
+  formValidation();
+  console.log(formData)
 });
 // RECUPERER LE NUMERO DE COMMANDE VIA L'API 
 

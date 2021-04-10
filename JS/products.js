@@ -153,7 +153,8 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
             addToLocalStorage()
             console.log("un nouveau produit a été ajouté au panier")
           }
-
+          // Rafraichir le panier à l'ajout d'un produit
+          location.reload();
         }
       
 
