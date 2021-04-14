@@ -128,6 +128,7 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
         cartStorage = [];
         addToLocalStorage();
         console.log("Le panier a été initialisé.");
+        location.reload();
         //confirmation();
       }
       
@@ -162,4 +163,3 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
     
   });
   // Gestion Panier
-
