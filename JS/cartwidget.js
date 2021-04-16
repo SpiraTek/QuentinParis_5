@@ -10,31 +10,34 @@ function getTotalItemWidget() {
   });
   return totalItem;
 }
+
+// Intégration du widget panier au HTML si le localStorage n'est pas vide
 if (widgetStorage !== null) {
-  //widget Panier
   function cartWidget() {
     let totalItemWidget = document.getElementById("incart");
     totalItemWidget.innerHTML = getTotalItemWidget();
   }
   cartWidget();
 }
-// Calcul du prix total du panier 
 
 
-  for (let i = 0; i < widgetStorage.length; i++) {
-    function getTotalPrice() {
-      let totalCart = 0;
-      widgetStorage.forEach((cart) => {
-        totalCart = totalCart + cart.price * cart.quantity;
-      });
-      return totalCart;
-    }
-    function getTotalItem() {
-      let totalItem = 0;
-      widgetStorage.forEach((cart) => {
-        totalItem = totalItem +  cart.quantity;
-      });
-      return totalItem;
-    }
+// Calcul du prix total du panier si il y'a des produits à l'intérieur, sinon retourne la valeur 0.
+function getTotalPrice() {
+  let totalCart = 0;
+  if (widgetStorage) {
+    widgetStorage.forEach((cart) => {
+      totalCart = totalCart + cart.price * cart.quantity;
+    });
   }
-  
+  return totalCart;
+}
+// Calcul du nombre total de prouits dans le panier s'il y'en a à l'intérieur, sinon retourne la valeur 0. 
+function getTotalItem() {
+  let totalItem = 0;
+  if (widgetStorage) {
+    widgetStorage.forEach((cart) => {
+      totalItem = totalItem + cart.quantity;
+    });
+  }
+  return totalItem;
+}

@@ -63,8 +63,21 @@ if (cartStorage === null) {
 
 // BOUTON POUR SUPPRIMER UN ELEMENT DU PANIER
 
-// Selection de tous les bouttons removeItemButton
+// Selection du bouton en fonction de son ID
+if(cartStorage) {
+for (let i = 0; i < cartStorage.length; i++){
 
+const removeLineBtn = document.getElementById("remove_Item_Button" +i)
+removeLineBtn.addEventListener("click", (d) => {
+  d.preventDefault();
+  cartStorage.splice(i, 1)
+  localStorage.setItem("cart", JSON.stringify(cartStorage));
+  alert("L'article a bien été retiré du panier")
+  //rechargement de la page
+  location.reload()
+    });
+  }
+}
 // BOUTON POUR VIDER ENTIEREMENT LE PANIER -----------------------------------------------------------------------------
 const removeAllBtn = document.getElementById("clearCart");
 removeAllBtn.addEventListener("click", (e) => {
@@ -73,7 +86,7 @@ removeAllBtn.addEventListener("click", (e) => {
   localStorage.removeItem("cart");
   alert("Le panier a été vidé");
   // rechargement de la page
-  window.location.href = "cart.html";
+  location.reload()
 });
 
 // GESTION VERIFICATION DU FORMULAIRE --------------------------------------------------
@@ -87,6 +100,8 @@ function formValidation() {
   let formCity = document.getElementById("city").value;
   let formMail = document.getElementById("mail").value;
 
+  // 
+
   // Controles des expressions courantes
   let formError = "";
   const regNumber = /[0-9]/;
@@ -97,43 +112,46 @@ function formValidation() {
   if (regText.test(formLastname) !== true || formLastname === "") {
     formError =
       "Veuillez vérifier votre saisie dans le champs 'nom' les chiffres et les caractères spéciaux sont interdits.";
+      alert(formError);
+      return false
   } 
   // Prénom
   if (regText.test(formFirstname) !== true || formFirstname === "") {
-    formError =
-      "Veuillez vérifier votre saisie dans le champ 'prénom' les chiffres et les caractères spéciaux sont interdits.";
+    formError = "Veuillez vérifier votre saisie dans le champ 'prénom' les chiffres et les caractères spéciaux sont interdits.";
+    alert(formError);
+      return false
   } 
   // Adresse
-  if (
-    regText.test(formAddress) !== true ||
-    regNumber.test(formAddress) !== true ||
-    formAddress === ""
-  ) {
+  if (regText.test(formAddress) !== true ||regNumber.test(formAddress) !== true || formAddress === "") {
     formError =
       "Veuillez vérifier votre saisie dans le champ 'adresse', il doit contenir un numéro et des lettres les caractères spéciaux sont interdits.";
+      alert(formError);
+      return false
   }
   /* Code Postal
   if (regNumber.test(formZip) !== true || formZip === "") {
     formError =
       "Veuillez vérifier votre saisie dans le champ 'code postal', seuls les chiffres sont autorisés.";
+      alert(formError);
+      return false
   }*/
 
   // Ville
   if (regText.test(formCity) !== true || formCity === "") {
     formError =
       "Veuillez vérifier votre saisie dans le champ 'ville' les chiffres et les caractères spéciaux sont interdits.";
+      alert(formError);
+      return false
   }
   // Adresse Mail
   if (regMail.test(formMail) !== true || formMail === "") {
     formError =
       "Veuillez vérifier votre saisie dans le champ Mail, seules les adresses mails au format 'monmail@monfournisseur.XXX' sont autorisées.";
-  }
-  // GESTION DU MESSAGE D'ALERTE EN CAS DE SAISIE INCORRECTE (form error est différent de "") retourne FALSE
-  if (formError !== "") {
-    alert("Veuillez vérifier les données saisies:" + "\n" + formError);
-    return false
+      alert(formError);
+      return false
   }
 
+// -------------------- VOIR POUR METTRE LES ERREURS EN ARRAY AFIN DE POUVOIR AFFICHER PLUSIEURS ERREURS SIMULTANéES
   // SI LE FORMULAIRE EST CORRECTEMENT RENSEIGNE
   // Renvoi des données saisies dans l'objet contact (comme vu dans le controller de l'API)
   else {
@@ -186,7 +204,7 @@ formCheckBtn.addEventListener("click", (e) => {
   }
 });
 
-// RECUPERER LE NUMERO DE COMMANDE VIA L'API
+
 
 /*let getTable = document.getElementById("cart__tablebody")
 

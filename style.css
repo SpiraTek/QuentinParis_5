@@ -154,17 +154,6 @@ button:active {
 }
 
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-content: space-around;
-  align-items: center;
-  border: solid black;
-  width: 50%;
-  margin: auto;
-  
-}
 .confirm-order {
   display: flex;
   font-size: 20px;;
@@ -183,6 +172,15 @@ form {
   justify-content: center;
   margin-top: 200px;
 }
+
+.confirmation {
+  display: flex;
+}
+.cartCheckout {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 .checkout__container{
   font-size: 20px;
   display: flex;
@@ -191,10 +189,29 @@ form {
   align-items: center;
   margin: auto;
   background-color: #f3e9f1;
-  margin-top: 40px;
   width: auto;
   padding: 30px;
   border-radius: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: solid black;
+  width: auto;
+  margin: auto;
+  
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: auto;
+  height: 30px;
 }
 
 

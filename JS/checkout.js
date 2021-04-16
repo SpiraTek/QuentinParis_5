@@ -16,7 +16,7 @@ else {
     let orderContainer = document.getElementById("checkout__container")
     // Titre
     let orderMsg = document.createElement("h2")
-    orderMsg.innerHTML = "Merci pour votre commande," +" "+ customerDatas.contact.firstName + " " + customerDatas.contact.lastName +" " +  "voici le récapitulatif:"
+    orderMsg.innerHTML = "Merci pour votre commande,"+ customerDatas.orderId +" "+ customerDatas.contact.firstName + " " + customerDatas.contact.lastName +" " +  "voici le récapitulatif:"
     orderContainer.append(orderMsg);
     // Nombre d'articles
     let itemCount = document.createElement("h3")
