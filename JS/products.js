@@ -71,8 +71,8 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
 
     // Intégration au HTML
     singleItem.append(container);
-    container.append(name);
     container.appendChild(img);
+    container.append(name);
     container.append(desc);
     container.append(price);
     container.append(color);

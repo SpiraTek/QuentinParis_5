@@ -40,7 +40,7 @@ if (cartStorage === null) {
     getTable.append(cartTotalPrice);
 
     let removeBtn = document.createElement("button");
-    removeBtn.innerHTML = "Supprimer du panier";
+    removeBtn.innerHTML = "Supprimer";
     removeBtn.className = "removeItemButton";
     removeBtn.id = "remove_Item_Button" + [i];
     getTable.append(removeBtn);
@@ -103,30 +103,28 @@ function formValidation() {
   // 
 
   // Controles des expressions courantes
-  let formError = "";
+  let formError = "Veuillez vérifier votre saisie. <br> Tous les champs sont obligatoires";
   const regNumber = /[0-9]/;
   const regMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const regText = /[a-zA-Z]/;
 
   // Test des entrées du formulaire qui renvoi un message d'erreur en cas de saisie incorrecte
   if (regText.test(formLastname) !== true || formLastname === "") {
-    formError =
-      "Veuillez vérifier votre saisie dans le champs 'nom' les chiffres et les caractères spéciaux sont interdits.";
-      alert(formError);
+    let nameError = document.getElementById("errorName");
+    nameError.innerHTML = formError;
       return false
   } 
   // Prénom
   if (regText.test(formFirstname) !== true || formFirstname === "") {
-    formError = "Veuillez vérifier votre saisie dans le champ 'prénom' les chiffres et les caractères spéciaux sont interdits.";
-    alert(formError);
+    let firstNameError = document.getElementById("errorFirstName");
+    firstNameError.innerHTML = formError;
       return false
   } 
   // Adresse
   if (regText.test(formAddress) !== true ||regNumber.test(formAddress) !== true || formAddress === "") {
-    formError =
-      "Veuillez vérifier votre saisie dans le champ 'adresse', il doit contenir un numéro et des lettres les caractères spéciaux sont interdits.";
-      alert(formError);
-      return false
+    let addressError = document.getElementById("errorAddress");
+     addressError.innerHTML = formError;
+     return false
   }
   /* Code Postal
   if (regNumber.test(formZip) !== true || formZip === "") {
@@ -138,16 +136,14 @@ function formValidation() {
 
   // Ville
   if (regText.test(formCity) !== true || formCity === "") {
-    formError =
-      "Veuillez vérifier votre saisie dans le champ 'ville' les chiffres et les caractères spéciaux sont interdits.";
-      alert(formError);
+    let cityError = document.getElementById("errorCity");
+    cityError.innerHTML = formError;
       return false
   }
   // Adresse Mail
   if (regMail.test(formMail) !== true || formMail === "") {
-    formError =
-      "Veuillez vérifier votre saisie dans le champ Mail, seules les adresses mails au format 'monmail@monfournisseur.XXX' sont autorisées.";
-      alert(formError);
+    let mailError = document.getElementById("errorMail");
+    mailError.innerHTML = formError;
       return false
   }
 

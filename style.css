@@ -4,6 +4,7 @@
 body {
   margin: auto;
   width: auto;
+
 }
 a {
   text-decoration: none;
@@ -52,9 +53,20 @@ main {
   margin: auto;
 }
 
+/* INDEX */
 .products {
   margin: auto;
-  margin-top: 50px;
+  width: auto;
+}
+.section__title {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.subtitle{
+  font-size: 20px;
+  font-style:italic;
 }
 
 .teddies {
@@ -63,8 +75,9 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #f3e9f1;
-  margin-top: 20px;
+  margin-bottom: 20px;
   padding-top: 10px;
+  padding-bottom: 10px;
   border: solid white;
   border-radius: 20px;
 }
@@ -74,13 +87,35 @@ main {
   object-fit: cover;
   max-width: 95%;
 }
+.teddies__desc {
+  display: flex;
+  width: auto;
+  margin: 10px;
+}
+.seemore{
+  height: 30px;
+  background-color:#dbb1d3;
+  font-weight: bold;
+  font-size: 16px;
+  
+
+}
 
 /* Page PRODUCTS */
 
 .color__choice {
   background-color: rgba(200, 30, 15, 0.1);
 }
+.add_to_cart {
+  margin-top: 10px;
+  height: 40px;
+  width: auto;
+  background-color:#dbb1d3;
+  font-weight: bold;
+  font-size: 16px;
+}
 
+/* Page CART */
 /*table {
     table-layout: fixed;
     width: 100%;
@@ -140,16 +175,15 @@ button:active {
 
 
 .cartCheckout {
-  display: flex;
+  
   font-weight: bold;
   font-size: 16px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding: 5px 40px 5px 10px;
+  padding: 20px;  
   background-color: pink;
-  width: 60%;
   margin: auto;
 }
 
@@ -175,11 +209,15 @@ button:active {
 
 .confirmation {
   display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 90%;
 }
 .cartCheckout {
   display: flex;
   flex-direction: column;
   margin: auto;
+  width: 100%;
 }
 .checkout__container{
   font-size: 20px;
@@ -189,7 +227,6 @@ button:active {
   align-items: center;
   margin: auto;
   background-color: #f3e9f1;
-  width: auto;
   padding: 30px;
   border-radius: 20px;
 }
@@ -213,5 +250,11 @@ input {
   width: auto;
   height: 30px;
 }
-
+/* FOOTER */
+.footer {
+background-color: #f3e9f1;
+height: 90px;
+width: 100%;
+margin-top: 20px;
+}
 

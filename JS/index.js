@@ -44,7 +44,7 @@ function getItems () {
             const link = document.createElement ('a')
             const more = document.createElement('button')
             link.href = "products.html?id=" + data[index]._id
-            more.textContent = "Adoptez le"
+            more.textContent = "Adoptez moi"
             more.className = "more__button seemore"
 
 
