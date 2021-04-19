@@ -17,13 +17,18 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
     // Div conteneur
     const container = document.createElement("div");
     container.id = "teddies__cards";
-    container.className = "teddies";
+    container.className = "teddies single__teddy";
+
+    // Div des données 
+    const singleTeddyDatas = document.createElement("div")
+    singleTeddyDatas.id= "teddy__datas"
+    singleTeddyDatas.className = "single__teddy__datas"
 
     // image
     const img = document.createElement("img");
     img.innerHTML = data.imageUrl;
     img.src = data.imageUrl;
-    img.className = "teddies__img";
+    img.className = "teddies__img single__img";
     img.alt = "Photo d'un ourson en peluche";
     img.width = 400;
     img.height = 300;
@@ -72,12 +77,13 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
     // Intégration au HTML
     singleItem.append(container);
     container.appendChild(img);
-    container.append(name);
-    container.append(desc);
-    container.append(price);
-    container.append(color);
-    //container.append(quantity); // Test gestion quantité
-    container.append(addToCart);
+    container.appendChild(singleTeddyDatas)
+    singleTeddyDatas.append(name);
+    singleTeddyDatas.append(desc);
+    singleTeddyDatas.append(price);
+    singleTeddyDatas.append(color);
+    //singleTeddyDatas.append(quantity); // Test gestion quantité
+    singleTeddyDatas.append(addToCart);
 
     // Configuration de l'objet récupérant les données choisies par l'utilisateur
     let selectedOptions = {

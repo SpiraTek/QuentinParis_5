@@ -15,12 +15,36 @@ if (customerDatas === null) {
 else {
     let orderContainer = document.getElementById("checkout__container")
     // Titre
-    let orderMsg = document.createElement("h2")
-    orderMsg.innerHTML = "Merci pour votre commande,"+ customerDatas.orderId +" "+ customerDatas.contact.firstName + " " + customerDatas.contact.lastName +" " +  "voici le récapitulatif:"
+    let orderMsg = document.createElement("h2");
+    orderMsg.innerHTML = "Merci pour votre commande "+ customerDatas.contact.firstName + " " + customerDatas.contact.lastName +" " +  "voici le récapitulatif:"
     orderContainer.append(orderMsg);
+    // ID
+    let ordernNumber = document.createElement("h3");
+    ordernNumber.innerHTML = "Numéro de votre commande: " +  customerDatas.orderId;
+    orderContainer.append(ordernNumber)
+
     // Nombre d'articles
-    let itemCount = document.createElement("h3")
+    let itemCount = document.createElement("h3");
     itemCount.innerHTML = "Montant total de votre commande: "  + getTotalPrice() +"€";
     orderContainer.append(itemCount)
 
+    // Bouton de confirmation 
+    let finalLink = document.createElement("a")
+    let finalButton = document.createElement("button");
+    finalLink.href = "index.html"
+    finalButton.id = "backToMain"
+    finalButton.className = "backToMain"
+    finalButton.innerHTML = "Revenir au menu principal"
+    orderContainer.append(finalLink)
+    finalLink.append(finalButton);
+
+    // Suppression du local storage quand l'utilisateur clique sur le bouton
+    let resetStorage = document.getElementById("backToMain")
+    resetStorage.addEventListener("click", (e) => {
+        e.preventDefault();
+        // suppression de cart dans le local storage
+        localStorage.clear();
+        // rechargement de la page
+        document.location.href="index.html";
+    });
 }

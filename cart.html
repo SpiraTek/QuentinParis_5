@@ -61,28 +61,28 @@
         <div id="cartCheckout" class="cartCheckout">
             <p>Nombre d'articles dans le panier: <span id="total__item"></span></p>
             <p>Sous total : <span id="subTotal" class="subtotal"></span>€</p>
-            <button id="clearCart">Vider le panier</button>
+            <button id="clearCart" class="clearCart">Vider le panier</button>
         </div>
                                  <!-- FORMULAIRE DES DONNNES CLIENT-->
         <div class="form__container">
-
             <form action="" method="post">
+                <h2 class="form__title"> Veuillez entrer vos coordonnées</h2>
                 <div class="lastname">
-                    <label for="name">Nom :</label>
+                    <label for="name">Nom</label>
                     <input type="text" id="lastname" name="user_name" required>
-                    <span id="errorName"></span>
+                    <span id="errorName" class="formAlert"></span>
                 </div>
                 <br>
                 <div class="firstname">
-                    <label for="firstname">Prénom :</label>
+                    <label for="firstname">Prénom</label>
                     <input type="text" id="firstname" name="user_firstname" required>
-                    <span id="errorFirstName"></span>
+                    <span id="errorFirstName" class="formAlert"></span>
                 </div>
                 <br>
                 <div class="address">
-                    <label for="address">Adresse :</label>
+                    <label for="address">Adresse</label>
                     <input type="text" id="address" name="user_address" required>
-                    <span id="errorAddress"></span>
+                    <span id="errorAddress" class="formAlert"></span>
                 </div>
   <!--   DIV CODE POSTAL           <div class="zip">
                     <label for="zipcode">Code Postal :</label>
@@ -91,15 +91,15 @@
                 </div> --> 
                 <br>
                 <div class="city">
-                    <label for="city">Ville :</label>
+                    <label for="city">Ville</label>
                     <input type="text" id="city" name="user_city" required>
-                    <span id="errorCity"></span>
+                    <span id="errorCity" class="formAlert"></span>
                 </div>
                 <br>
                 <div class="mail">
-                    <label for="mail">Adresse Electronique :</label>
+                    <label for="mail">Adresse Electronique</label>
                     <input type="email" id="mail" name="user_email" required>
-                    <span id="errorMail"></span>
+                    <span id="errorMail" class="formAlert"></span>
                 </div>
                 <br>
                 <div>

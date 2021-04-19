@@ -31,13 +31,12 @@ a {
   font-size: 30px;
 }
 .incart {
-  color: white;
-  background-color: purple;
+  background-color: #f3e9f1;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 17px;
   border-radius: 25px;
   border: solid purple;
-  padding: 2px 10px 2px 10px;
+  padding: 2px 4px 2px 4px;
   margin-right: 10px;
 }
 li {
@@ -54,18 +53,24 @@ main {
 }
 
 /* INDEX */
+.index__title{
+font-size: 35px;
+}
 .products {
   margin: auto;
   width: auto;
+  display: flex;
 }
 .section__title {
  display: flex;
+ margin-top: 20px;
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ line-height: 15px;
 }
 .subtitle{
-  font-size: 20px;
+  font-size: 25px;
   font-style:italic;
 }
 
@@ -102,7 +107,21 @@ main {
 }
 
 /* Page PRODUCTS */
-
+.single__teddy {
+  width: 80%;
+  margin: 20px auto auto auto;
+  display: flex;
+  flex-direction: row;
+}
+.single__teddy__datas{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  font-size: 20px;
+}
 .color__choice {
   background-color: rgba(200, 30, 15, 0.1);
 }
@@ -113,6 +132,11 @@ main {
   background-color:#dbb1d3;
   font-weight: bold;
   font-size: 16px;
+}
+.single__img{
+ height: 500px;
+ width:  auto;
+ margin-left: 10px;
 }
 
 /* Page CART */
@@ -149,8 +173,9 @@ main {
   align-items: center;
   justify-content: center;
   margin: auto;
-  border: solid purple;
+  border: 1px solid #dbb1d3;
   width: 95%;
+  font-size: 20px;
 }
 
 .cartimg {
@@ -172,32 +197,31 @@ button:active {
   box-shadow: 1.25px;
 
 }
-
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 95%;
+}
 
 .cartCheckout {
-  
   font-weight: bold;
-  font-size: 16px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
   padding: 20px;  
-  background-color: pink;
-  margin: auto;
+  background-color:#f3e9f1;
+  width: 100%;
+  border: 1px solid #dbb1d3;
+}
+.clearCart{
+  width: 140px;
+  font-size: 16px;
+  font-weight: bold;
+  height: auto;
+  background-color: #dbb1d3;
 }
 
-
-.confirm-order {
-  display: flex;
-  font-size: 20px;;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  height: 50px;
-  width: 300px;
-  margin-top: 20px;
-}
 .empty__order{
   display: flex;
   border: 2px solid black;
@@ -206,40 +230,26 @@ button:active {
   justify-content: center;
   margin-top: 200px;
 }
-
-.confirmation {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 90%;
+.form__title {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
-.cartCheckout {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-}
-.checkout__container{
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  background-color: #f3e9f1;
-  padding: 30px;
-  border-radius: 20px;
-}
-
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  border: solid black;
   width: auto;
   margin: auto;
+  padding-bottom: 20px;
+  background-color: #f3e9f1;
+  border: solid 1px #dbb1d3;
   
+}
+label{
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 input {
@@ -247,12 +257,40 @@ input {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  width: auto;
-  height: 30px;
+  width: 500px;
+  height: 40px;
+  font-size: 20px;
 }
+.confirm-order, .backToMain {
+  border-radius: 20px;
+  background-color: #dbb1d3;
+  border-color: purple;
+  font-weight: bold;
+  font-size: 20px;
+  height: 50px;
+  margin-top: 20px;
+  width: auto;
+}
+.formAlert{
+  color: red;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/* CHECKOUT */
+.checkout__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 /* FOOTER */
 .footer {
-background-color: #f3e9f1;
+background-color: #dbb1d3;
 height: 90px;
 width: 100%;
 margin-top: 20px;
