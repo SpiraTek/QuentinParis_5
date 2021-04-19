@@ -66,7 +66,7 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
       howMany.forEach(function (qty, key) {
         quantity[key] = new Option(qty, key);
       });
-*/
+    */
 
     // Bouton d'ajout au panier
     const addToCart = document.createElement("button");
@@ -105,19 +105,19 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
       // Variable stockant les clés et les values qui seront ajoutées au local storage
       let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
-      // Fonction pour ajouter une fenêtre permettant d'aller au panier ou de revenir au menu principal après ajout au panier
+      /* Fonction pour ajouter une fenêtre permettant d'aller au panier ou de revenir au menu principal après ajout au panier
       function confirmation() {
         // Si click sur OK redirection vers page "cart.html"
         if (
           window.confirm(`L'ourson a bien été ajouté au panier.
-Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur ANNULER`)
+        Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur ANNULER`)
         ) {
           window.location.href = "cart.html";
           // Si click sur ANNULER retour à l'accueil (index.html) du site
         } else {
           window.location.href = "index.html";
         }
-      }
+      }*/
 
       // Fonction pour ajouter le produit selectionné au local storage
       const addToLocalStorage = () => {
@@ -163,9 +163,5 @@ Pour consulter le panier cliquez sur OK, pour revenir à l'accueil cliquez sur A
           // Rafraichir le panier à l'ajout d'un produit
           location.reload();
         }
-      
-
     });
-    
   });
-  // Gestion Panier

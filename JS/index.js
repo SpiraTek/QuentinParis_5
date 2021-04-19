@@ -1,3 +1,5 @@
+
+// FONCTION PERMETTANT L'APPEL DES PRODUITS DEPUIS L'API ET L'INTEGRATION DANS LE DOM DE CES DERNIERS
 function getItems () { 
     fetch("http://localhost:3000/api/teddies") // Récupération des données de l'API 
     .then(function(response){

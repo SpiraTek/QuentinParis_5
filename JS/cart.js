@@ -2,50 +2,52 @@
 let cartStorage = JSON.parse(localStorage.getItem("cart"));
 console.log(localStorage.length);
 
-// Si le panier est vide création d'un message indiquant que le panier est vide
+// FONCTION GENERANT LE PANIER
+function generateCartPage(){
+  if (cartStorage === null) {
+    let emptyCart = document.getElementById("cart__container");
+    let emptyMsg = document.createElement("h2");
+    emptyMsg.innerHTML = "Le panier est vide";
+    emptyMsg.className = "empty__cart"
+    emptyCart.append(emptyMsg);
+  } else {
+    // Sinon construction de la page panier dans le HTML
+    for (let i = 0; i < cartStorage.length; i++) {
+      console.log(localStorage);
+      let getTable = document.getElementById("cart__container");
 
-if (cartStorage === null) {
-  let emptyCart = document.getElementById("cart__container");
-  let emptyMsg = document.createElement("h2");
-  emptyMsg.innerHTML = "Le panier est vide";
-  emptyMsg.className = "empty__cart"
-  emptyCart.append(emptyMsg);
-} else {
-  // Sinon construction de la page panier dans le HTML
-  for (let i = 0; i < cartStorage.length; i++) {
-    console.log(localStorage);
-    let getTable = document.getElementById("cart__container");
+      let cartImg = document.createElement("img");
+      cartImg.className = "cartimg";
+      cartImg.src = cartStorage[i].image;
+      getTable.append(cartImg);
 
-    let cartImg = document.createElement("img");
-    cartImg.className = "cartimg";
-    cartImg.src = cartStorage[i].image;
-    getTable.append(cartImg);
+      let cartArticle = document.createElement("p");
+      cartArticle.innerHTML = cartStorage[i].name;
+      getTable.append(cartArticle);
 
-    let cartArticle = document.createElement("p");
-    cartArticle.innerHTML = cartStorage[i].name;
-    getTable.append(cartArticle);
+      let cartPerLineQuantity = document.createElement("p");
+      cartPerLineQuantity.innerHTML = cartStorage[i].quantity;
+      getTable.append(cartPerLineQuantity);
 
-    let cartPerLineQuantity = document.createElement("p");
-    cartPerLineQuantity.innerHTML = cartStorage[i].quantity;
-    getTable.append(cartPerLineQuantity);
+      let cartPrice = document.createElement("p");
+      cartPrice.innerHTML = cartStorage[i].price + "€";
+      getTable.append(cartPrice);
 
-    let cartPrice = document.createElement("p");
-    cartPrice.innerHTML = cartStorage[i].price + "€";
-    getTable.append(cartPrice);
+      //Prix total par ligne
+      let cartTotalPrice = document.createElement("p");
+      cartTotalPrice.innerHTML =
+        cartStorage[i].price * cartStorage[i].quantity + "€";
+      getTable.append(cartTotalPrice);
 
-    //Prix total par ligne
-    let cartTotalPrice = document.createElement("p");
-    cartTotalPrice.innerHTML =
-      cartStorage[i].price * cartStorage[i].quantity + "€";
-    getTable.append(cartTotalPrice);
-
-    let removeBtn = document.createElement("button");
-    removeBtn.innerHTML = "Supprimer";
-    removeBtn.className = "removeItemButton";
-    removeBtn.id = "remove_Item_Button" + [i];
-    getTable.append(removeBtn);
+      let removeBtn = document.createElement("button");
+      removeBtn.innerHTML = "Supprimer";
+      removeBtn.className = "removeItemButton";
+      removeBtn.id = "remove_Item_Button" + [i];
+      getTable.append(removeBtn);
+    }
   }
 }
+generateCartPage();
 
 // Calcul du prix total
 
@@ -162,7 +164,6 @@ function formValidation() {
     return contact;
   }
 }
-
 
 let contact;
 const formCheckBtn = document.getElementById("confirm-order");
