@@ -19,6 +19,14 @@ a {
   padding-right: 10px;
   width: 100%;
 }
+.backToIndex {
+  font-weight: bold;
+  width: auto;
+  height: 50px;
+  background-color:#dbb1d3;
+  font-size: 20px;
+  margin: auto;
+}
 
 .logo {
   height: auto;
@@ -177,6 +185,10 @@ font-size: 35px;
   width: 95%;
   font-size: 20px;
 }
+.cartTitle {
+  font-size: 25px;
+  display: flex;
+}
 
 .cartimg {
   max-height: 100px;
@@ -215,7 +227,7 @@ button:active {
   border: 1px solid #dbb1d3;
 }
 .clearCart{
-  width: 140px;
+  width: 200px;
   font-size: 16px;
   font-weight: bold;
   height: auto;
