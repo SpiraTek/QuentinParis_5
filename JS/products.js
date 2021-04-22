@@ -98,7 +98,7 @@ fetch("http://localhost:3000/api/teddies/" + productId) // Récupération des do
     // --------------  Ajout au panier au click sur le bouton --------------
 
     // Selection du bouton dans le DOM
-    let addBtn = document.querySelector("button");
+    let addBtn = document.getElementById("add_to_cart");
 
     // Ajout de l'event listener au click sur le bouton et création de la fonction qui en résulte
     addBtn.addEventListener("click", function () {
