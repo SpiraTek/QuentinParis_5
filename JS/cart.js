@@ -149,7 +149,7 @@ function formValidation() {
       return false
   }
 
-// -------------------- VOIR POUR METTRE LES ERREURS EN ARRAY AFIN DE POUVOIR AFFICHER PLUSIEURS ERREURS SIMULTANéES
+
   // SI LE FORMULAIRE EST CORRECTEMENT RENSEIGNE
   // Renvoi des données saisies dans l'objet contact (comme vu dans le controller de l'API)
   else {
@@ -200,25 +200,3 @@ formCheckBtn.addEventListener("click", (e) => {
     
   }
 });
-
-
-
-/*let getTable = document.getElementById("cart__tablebody")
-
-    let cartArticle = document.createElement("th")
-    cartArticle.innerHTML = cartStorage[i].nom;
-    getTable.append(cartArticle);
-
-    let cartImg = document.createElement("td")
-
-    cartImg.innerHTML = cartStorage[i].image;
-    cartImg.src = "cartStorage[i].image";
-    getTable.append(cartImg)
-
-    let cartPerLineQuantity = document.createElement("td")
-    cartPerLineQuantity.innerHTML = cartStorage[i].Quantité
-    getTable.append(cartPerLineQuantity)
-
-    let cartPrice = document.createElement("td")
-    cartPrice.innerHTML = cartStorage[i].Prix;
-    getTable.append(cartPrice)*/

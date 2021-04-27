@@ -26,39 +26,39 @@
 }
 /* CART */
 .cart__container {
-    font-size: 22px;
-  }
+  font-size: 22px;
+}
 .cartTitle {
-    font-size: 24px;
+  font-size: 24px;
 }
 .cartimg {
-    margin: auto;
-    max-width: 150px;
-    max-height: 150px;
+  margin: auto;
+  max-width: 150px;
+  max-height: 150px;
 }
 .cartCheckout {
-    font-size: 25px;
-    line-height: 20px;
-    justify-content: space-around;
-  }
-.clearCart{
-    font-size: 22px;
+  font-size: 25px;
+  line-height: 20px;
+  justify-content: space-around;
+}
+.clearCart {
+  font-size: 22px;
 }
 .form__title {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 label {
-    font-size: 25px;
+  font-size: 25px;
 }
 input {
-    width: 600px;
-    height: 40px;
+  width: 600px;
+  height: 40px;
 }
 .formAlert {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 /* CHECKOUT */
 .checkout__container {
-    font-size: 22px;
+  font-size: 22px;
 }

@@ -1,32 +1,32 @@
 /* INDEX */
 
 .products {
-    margin: auto;
-    width: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+  margin: auto;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .teddies__img {
-    border-radius: 10px;
-    object-fit: cover;
-    max-width: 95%;
-    height: 390px;
-  }
-  
+  border-radius: 10px;
+  object-fit: cover;
+  max-width: 95%;
+  height: 390px;
+}
+
 /* PRODUCTS */
 
-/* CART */ 
+/* CART */
 .cartimg {
-    margin: auto;
-    width: auto;
+  margin: auto;
+  width: auto;
 }
 
 input {
-    width: 500px;
-    height: 40px;
+  width: 500px;
+  height: 40px;
 }
 
 /* CHECKOUT */
 .checkout__container {
-    font-size: 20px;
+  font-size: 20px;
 }

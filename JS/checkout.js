@@ -1,7 +1,10 @@
+// Récupération des données de la commande
 
 let customerDatas = JSON.parse(localStorage.getItem("order"));
 localStorage.setItem("order", JSON.stringify(customerDatas));
 console.log(customerDatas)
+
+// Génération de la page de confirmation de commande 
 function generateCheckOut(){
 // Si aucun élément de commande (en principe l'utilisateur ne peux pas accédere à cette page dans ce cas)
 if (customerDatas === null) {
