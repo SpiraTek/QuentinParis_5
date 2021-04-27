@@ -40,7 +40,7 @@ function generateCartPage(){
       getTable.append(cartTotalPrice);
 
       let removeBtn = document.createElement("button");
-      removeBtn.innerHTML = "Supprimer";
+      removeBtn.innerHTML = "X";
       removeBtn.className = "removeItemButton";
       removeBtn.id = "remove_Item_Button" + [i];
       getTable.append(removeBtn);
